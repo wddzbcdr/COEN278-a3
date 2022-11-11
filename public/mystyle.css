@@ -1,0 +1,36 @@
+.home{
+    padding-left:30px;
+    color: rgb(47,49,144);
+}
+
+#homeanchor{
+    color: rgb(83,146,52);
+    
+}
+
+#border{
+    padding-bottom:60px;
+    align-items: center;
+    margin:100px 30px;
+    border-style:solid;
+    border-width:2px;
+    border-color: rgb(88,135,169);
+    width:30%;
+}
+
+.container {
+    padding-top:10px;
+    padding-left:30px;
+    width: 400px;
+    clear: both;
+}
+
+.container input {
+    width: 30%;
+    clear: both;
+}
+
+.login {
+    top : 40px;
+    right : 100px;
+}

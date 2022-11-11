@@ -1,0 +1,85 @@
+<style>
+    #border{
+      padding-right:10px;
+      padding-bottom:340px;
+      border-style:solid;
+      border-width:2px;
+      border-color: rgb(88,135,169);
+      width:80%;
+    }
+  </style>
+
+<div style="padding-left:20px;">
+    <p> Hi <%=@username%>, place your bet on dice number (1-6) </p>
+
+    <div style="float:left;width:300px;height:150px;">
+        <form method='post'>
+            <div style="float:left;padding-right:10px">
+                <label for="bmoney">bet money</label><br><br>
+                <label for="bnumber">on</label>
+            </div>
+
+            <div>
+                <input type="number" name="bmoney" required><br><br>
+                <input type="number" name="bnumber" required>
+            </div>
+
+            <div style="padding-left:55%;">
+                <br><button type="submit">Bet</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="data" style="float:right;width:25%;height:150px;border-style:solid;border-width:2px;border-color: rgb(88,135,169);padding-left:20px;">
+        <label for="total_win_session">total win</label><br>
+        <input type="text" name="total_win_session" value=<%=session[:totalwin]%>><br>
+        
+        <label for="total_loss_session">total loss</label><br>
+        <input type="text" name="total_loss_session" value=<%=session[:totalloss]%>><br>
+        
+        <label for="total_profit_session">total profit</label><br>
+        <input type="text" name="total_profit_session" value=<%=session[:totalprofit]%>><br>
+    </div>
+
+
+
+    <div class="data" style="float:left;width:100%;height:50px;">
+        <p> account </p>
+        <form>
+            <div style="border-style:solid;border-width:2px;border-color: rgb(88,135,169);padding-left:20px;padding-bottom:5px;">
+                <div style="float:left;padding-right:30px;">
+                    <label for="total_win">total win</label><br>
+                    <input type="text" name="total_win" value=<%=@user.totalwin%>>
+                </div>
+
+                <div style="float:left;padding-right:30px;">
+                    <label for="total_loss">total loss</label><br>
+                    <input type="text" name="total_loss" value=<%=@user.totalloss%>>
+                </div>
+
+                <div>
+                    <label for="total_profit">total profit</label><br>
+                    <input type="text" name="total_profit" value=<%=@user.totalprofit%>><br>
+                </div>
+                
+                <br>
+                
+            </div>
+        </form>
+        
+    </div>
+    <a style="float:left;padding-top:100px;" href='/logout'><button>Logout</button></a>
+</div>
+
+<div style="float:left;padding-top:150px;">
+    <%if @dice%>
+        <h2> You bet <%=params[:bmoney]%> dollors on <%=params[:bnumber]%>.<br>
+        The dice landed on <%= @dice %>, 
+        <%if @dice == params[:bnumber].to_i%>
+            you won <%=params[:bmoney]%> dollors 
+        <%else%>
+            you lost <%=params[:bmoney]%> dollors 
+        <%end%>
+        </h2>
+    <%end%>
+</div>

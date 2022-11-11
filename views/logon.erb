@@ -1,0 +1,22 @@
+<form method='post'>
+    <div class="container">
+
+        <label style="padding-right:30px" for="uname">User</label>
+        <input type="text" name="uname" required><br>
+
+        <label for="psw">Password</label>
+        <input type="password" name="psw" required><br>
+
+        <div class="login"><button type="submit">Login</button> </div>
+    </div>
+</form>
+
+<% if @username_not_exist %>
+    <p> The user name does not exist, please enter again ! </p>
+<% end %>
+
+<% if @password_not_correct %>
+    <p> The password is wrong, please enter again ! </p>
+<% end %>
+
+
